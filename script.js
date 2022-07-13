@@ -30,3 +30,13 @@ function playRound(playerSelection, computerSelection) {
 }
 
 // console.log(playRound('rock', computerPlay()))
+
+function game(n) {
+    let playerSelection;
+    for (let i = 1; i <= +n; i++) {
+        playerSelection = prompt("Rock Paper Scissors:");
+        console.log(playRound(playerSelection, computerPlay()));
+    }
+}
+
+game(prompt("How many times do you want to play before you reload the page? :)"))
