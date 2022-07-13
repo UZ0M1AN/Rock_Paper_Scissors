@@ -1,10 +1,12 @@
-console.log("UZOMIAN");
+console.log("****************************************")
+console.log("Welcome to the Rock Paper Scissors Game");
+console.log("****************************************")
 
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////// FUNCTIONS ///////////////////////////////////////////
 function computerPlay() {
     return ["rock", "paper", "scissors"][Math.round(Math.random() * 2)];
 }
-
-// console.log(computerPlay());
 
 function playRound(playerSelection, computerSelection) {
     const rock = 'Rock breaks Scissors',
@@ -29,14 +31,21 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-// console.log(playRound('rock', computerPlay()))
-
 function game(n) {
     let playerSelection;
     for (let i = 1; i <= +n; i++) {
-        playerSelection = prompt("Rock Paper Scissors:");
-        console.log(playRound(playerSelection, computerPlay()));
+        playerSelection = prompt(`${i}: Rock Paper Scissors`);
+        console.log(i + ': ' + playRound(playerSelection, computerPlay()));
     }
 }
 
-game(prompt("How many times do you want to play before you reload the page? :)"))
+//////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+
+let startGame;
+
+do {
+    startGame = prompt("How many times do you want to play before you reload the page? :)");
+    game(startGame);
+}
+while (isNaN(startGame))
