@@ -42,10 +42,10 @@ function game(n) {
 //////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
 
-let startGame;
+// let startGame;
 
-do {
-    startGame = prompt("How many times do you want to play before you reload the page? :)");
-    game(startGame);
-}
-while (isNaN(startGame))
+// do {
+//     startGame = prompt("How many times do you want to play before you reload the page? :)");
+//     game(startGame);
+// }
+// while (isNaN(startGame))
