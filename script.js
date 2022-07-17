@@ -28,21 +28,9 @@ function playRound(e, playerSelection, computerSelection) {
             playerSelection === 'rock' ? updateDOM(++playerScore, playerScoreDOM) : updateDOM(++robotScore, robotScoreDOM);
     }
 
-    // if (computerSelection === playerSelection) {
-    //     updateDOM(++robotScore, robotScoreDOM);
-    //     updateDOM(++playerScore, playerScoreDOM);
-    //     return;
-    // }
-    // if (computerSelection === 'rock') {
-    //     return playerSelection === 'paper' ? updateDOM(++playerScore, playerScoreDOM) : updateDOM(++robotScore, robotScoreDOM);
-    // }
-    // if (computerSelection === 'paper') {
-    //     return playerSelection === 'scissors' ? updateDOM(++playerScore, playerScoreDOM) : updateDOM(++robotScore, robotScoreDOM);
-    // }
-    // if (computerSelection === 'scissors') {
-    //     return playerSelection === 'rock' ? updateDOM(++playerScore, playerScoreDOM) : updateDOM(++robotScore, robotScoreDOM);
-    // }
-
+    if (robotScore == 5 || playerScore == 5) {
+        robotScore > playerScore ? updateDOM('Robot Wins! 🤖', resultDOM) : playerScore > robotScore ? updateDOM ('Player Wins! 😎') : updateDOM('It\'s a tie! 🤼‍♂️');
+    }
 }
 
 function updateDOM (content, contentDOM) {
@@ -74,5 +62,4 @@ let robotScore = 0;
 btns.forEach(btn => btn.addEventListener('click', playRound));
 
 
-// My next step is to announce a winner once one player reaches 5 points.
-// Next, I'll try a break <label> statement to break out of the ifs if one of 'em satisfies the condition
+// My next step is to stop the game once one player reaches 5 points.
