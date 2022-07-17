@@ -13,26 +13,35 @@ function playRound(e, playerSelection, computerSelection) {
     computerSelection = computerPlay();
     // console.log(computerSelection, playerSelection);
 
-    // if (robotScore == 5 || playerScore == 5) {
-    //     if (robotScore == playerScore) updateDOM("It's a tie!", resultDOM);
-    //     if (robotScore > playerScore) updateDOM("Robot wins!", resultDOM);
-    //     updateDOM("Player wins", resultDOM);
-    // } 
+    switch(computerSelection) {
+        case playerSelection:
+            updateDOM(++robotScore, robotScoreDOM);
+            updateDOM(++playerScore, playerScoreDOM);
+            break;
+        case 'rock':
+            playerSelection === 'paper' ? updateDOM(++playerScore, playerScoreDOM) : updateDOM(++robotScore, robotScoreDOM);
+            break;
+        case 'paper':
+            playerSelection === 'scissors' ? updateDOM(++playerScore, playerScoreDOM) : updateDOM(++robotScore, robotScoreDOM);
+            break;
+        default:
+            playerSelection === 'rock' ? updateDOM(++playerScore, playerScoreDOM) : updateDOM(++robotScore, robotScoreDOM);
+    }
 
-    if (computerSelection === playerSelection) {
-        updateDOM(++robotScore, robotScoreDOM);
-        updateDOM(++playerScore, playerScoreDOM);
-        return;
-    }
-    if (computerSelection === 'rock') {
-        return playerSelection === 'paper' ? updateDOM(++playerScore, playerScoreDOM) : updateDOM(++robotScore, robotScoreDOM);
-    }
-    if (computerSelection === 'paper') {
-        return playerSelection === 'scissors' ? updateDOM(++playerScore, playerScoreDOM) : updateDOM(++robotScore, robotScoreDOM);
-    }
-    if (computerSelection === 'scissors') {
-        return playerSelection === 'rock' ? updateDOM(++playerScore, playerScoreDOM) : updateDOM(++robotScore, robotScoreDOM);
-    }
+    // if (computerSelection === playerSelection) {
+    //     updateDOM(++robotScore, robotScoreDOM);
+    //     updateDOM(++playerScore, playerScoreDOM);
+    //     return;
+    // }
+    // if (computerSelection === 'rock') {
+    //     return playerSelection === 'paper' ? updateDOM(++playerScore, playerScoreDOM) : updateDOM(++robotScore, robotScoreDOM);
+    // }
+    // if (computerSelection === 'paper') {
+    //     return playerSelection === 'scissors' ? updateDOM(++playerScore, playerScoreDOM) : updateDOM(++robotScore, robotScoreDOM);
+    // }
+    // if (computerSelection === 'scissors') {
+    //     return playerSelection === 'rock' ? updateDOM(++playerScore, playerScoreDOM) : updateDOM(++robotScore, robotScoreDOM);
+    // }
 
 }
 
@@ -40,17 +49,6 @@ function updateDOM (content, contentDOM) {
     contentDOM.textContent = content;
 }
 
-// function winner (robot, player) {
-//     if (robot === 5) return `${robot}`
-// }
-
-// function game(n) {
-//     let playerSelection;
-//     for (let i = 1; i <= +n; i++) {
-//         playerSelection = prompt(`${i}: Rock Paper Scissors`);
-//         console.log(i + ': ' + playRound(playerSelection, computerPlay()));
-//     }
-// }
 
 //////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
@@ -62,19 +60,19 @@ function updateDOM (content, contentDOM) {
 // }
 // while (isNaN(startGame))
 
-//////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////  DOM  ////////////////////////////////////////////
 const btns = document.querySelectorAll('.btn');
 const robotScoreDOM = document.querySelector('.robot-score');
 const playerScoreDOM = document.querySelector('.player-score');
 const resultDOM = document.querySelector('.result');
+robotScoreDOM.textContent = playerScoreDOM.textContent = 0;
 
 let playerScore = 0;
 let robotScore = 0;
 
-updateDOM(robotScore, robotScoreDOM);
-updateDOM(playerScore, playerScoreDOM);
-
 btns.forEach(btn => btn.addEventListener('click', playRound));
 
 
+// My next step is to announce a winner once one player reaches 5 points.
+// Next, I'll try a break <label> statement to break out of the ifs if one of 'em satisfies the condition
