@@ -29,7 +29,7 @@ function playRound(e, playerSelection, computerSelection) {
     }
 
     if (robotScore == 5 || playerScore == 5) {
-        robotScore > playerScore ? updateDOM('Robot Wins! 🤖', resultDOM) : playerScore > robotScore ? updateDOM ('Player Wins! 😎') : updateDOM('It\'s a tie! 🤼‍♂️');
+        robotScore > playerScore ? updateDOM('Robot Wins! 🤖', resultDOM) : playerScore > robotScore ? updateDOM ('Player Wins! 😎') : updateDOM('It\'s a tie! 🤼‍♂️', resultDOM);
     }
 }
 
