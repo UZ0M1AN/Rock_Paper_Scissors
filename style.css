@@ -4,6 +4,12 @@
     padding: 0;
 }
 
+:root {
+    --rock: #4F2723;
+    --paper: #88AA68;
+    --scissors: hsl(48, 60%, 60%);
+}
+
 body {
     font-family: monospace;
     color: #333;
@@ -14,24 +20,83 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 24px;
+    justify-content: space-between;
+
+    height: 70vh;
+    /* row-gap: 24px; */
+}
+
+h1 {
+    font-size: 54px;
+}
+
+.resultContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+.scoreboard {
+    font-size: 24px;
+}
+
+.result {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.btns {
+    display: flex;
+    gap: 10px;
 }
 
 .btn {
+    font-family: inherit;
     font-size: 48px;
     font-weight: bold;
     color: #eee;
     padding: 8px 16px;
+    border: none;
+    /* flex: 1 1 0; */
+}
+
+.rock-color {
+    color: var(--rock);
+}
+
+.paper-color {
+    color: var(--paper);
+}
+
+.scissors-color {
+    color: var(--scissors);
 }
 
 .rock {
-    background-color: #4F2723;
+    background-color: var(--rock);
 }
 
 .paper {
-    background-color: #88AA68;
+    background-color: var(--paper);
 }
 
 .scissors {
-    background-color: #C7A831;
+    background-color: var(--scissors);
+}
+
+.robot-win {
+    color: hsl(0, 80%, 40%);
+}
+
+.tie {
+    color: hsl(60, 100%, 50%);
+}
+
+.player-win {
+    color: hsl(120, 80%, 40%);
 }

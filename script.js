@@ -30,7 +30,7 @@ function playRound(e) {
         }
 
     if (robotScore >= 5 || playerScore >= 5) {
-        robotScore > playerScore ? resultDOM.textContent = 'Robot Wins! 🤖' : playerScore > robotScore ? resultDOM.textContent = 'Player Wins! 😎' : resultDOM.textContent = 'It\'s a tie! 🤼‍♂️';
+        robotScore > playerScore ? (resultDOM.textContent = 'Robot Wins! 🤖', resultDOM.classList.add('robot-win')) : playerScore > robotScore ? (resultDOM.textContent = 'Player Wins! 😎', resultDOM.classList.add('player-win')) : (resultDOM.textContent = 'It\'s a tie! 🤼‍♂️', resultDOM.classList.add('tie'));
         isPlaying = false;
     }
 }
