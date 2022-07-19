@@ -8,10 +8,11 @@ function computerPlay() {
     return ["rock", "paper", "scissors"][Math.round(Math.random() * 2)];
 }
 
-function playRound(e, playerSelection, computerSelection) {
-    playerSelection = e.target.dataset.rps;
-    computerSelection = computerPlay();
-    // console.log(computerSelection, playerSelection);
+function playRound(e) {   
+    if (!isPlaying) return;
+
+    let playerSelection = e.target.dataset.rps;
+    let computerSelection = computerPlay();
 
     switch(computerSelection) {
         case playerSelection:
@@ -26,27 +27,17 @@ function playRound(e, playerSelection, computerSelection) {
             break;
         default:
             playerSelection === 'rock' ? updateDOM(++playerScore, playerScoreDOM) : updateDOM(++robotScore, robotScoreDOM);
-    }
+        }
 
-    if (robotScore == 5 || playerScore == 5) {
-        robotScore > playerScore ? updateDOM('Robot Wins! 🤖', resultDOM) : playerScore > robotScore ? updateDOM ('Player Wins! 😎') : updateDOM('It\'s a tie! 🤼‍♂️', resultDOM);
+    if (robotScore >= 5 || playerScore >= 5) {
+        robotScore > playerScore ? resultDOM.textContent = 'Robot Wins! 🤖' : playerScore > robotScore ? resultDOM.textContent = 'Player Wins! 😎' : resultDOM.textContent = 'It\'s a tie! 🤼‍♂️';
+        isPlaying = false;
     }
 }
 
 function updateDOM (content, contentDOM) {
     contentDOM.textContent = content;
 }
-
-
-//////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////
-// let startGame;
-
-// do {
-//     startGame = prompt("How many times do you want to play before you reload the page? :)");
-//     game(startGame);
-// }
-// while (isNaN(startGame))
 
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////  DOM  ////////////////////////////////////////////
@@ -58,8 +49,6 @@ robotScoreDOM.textContent = playerScoreDOM.textContent = 0;
 
 let playerScore = 0;
 let robotScore = 0;
+let isPlaying = true;
 
 btns.forEach(btn => btn.addEventListener('click', playRound));
-
-
-// My next step is to stop the game once one player reaches 5 points.
