@@ -45,6 +45,7 @@ function newGame() {
     isPlaying = true;
     robotScoreDOM.textContent = playerScoreDOM.textContent = 0;
     resultDOM.textContent = '';
+    resultDOM.classList.remove('robot-win', 'player-win', 'tie');
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
