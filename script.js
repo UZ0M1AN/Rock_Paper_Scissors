@@ -39,12 +39,21 @@ function updateDOM (content, contentDOM) {
     contentDOM.textContent = content;
 }
 
+function newGame() {
+    playerScore = 0;
+    robotScore = 0;
+    isPlaying = true;
+    robotScoreDOM.textContent = playerScoreDOM.textContent = 0;
+    resultDOM.textContent = '';
+}
+
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////  DOM  ////////////////////////////////////////////
 const btns = document.querySelectorAll('.btn');
 const robotScoreDOM = document.querySelector('.robot-score');
 const playerScoreDOM = document.querySelector('.player-score');
 const resultDOM = document.querySelector('.result');
+const newGameBtn = document.querySelector('.new-game');
 robotScoreDOM.textContent = playerScoreDOM.textContent = 0;
 
 let playerScore = 0;
@@ -52,3 +61,4 @@ let robotScore = 0;
 let isPlaying = true;
 
 btns.forEach(btn => btn.addEventListener('click', playRound));
+newGameBtn.addEventListener('click', newGame);

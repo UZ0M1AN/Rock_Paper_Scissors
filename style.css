@@ -1,3 +1,5 @@
+/* //////////////////////////////////////////////// */
+/* GENERAL STYLES */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,8 +7,8 @@
 }
 
 :root {
-    --rock: #4F2723;
-    --paper: #88AA68;
+    --rock: hsl(5, 39%, 22%);
+    --paper: hsl(91, 28%, 54%);
     --scissors: hsl(48, 60%, 60%);
 }
 
@@ -16,6 +18,8 @@ body {
     background-color: coral;
 }
 
+/* //////////////////////////////////////////////// */
+/* CONTAINER AND HEADER */
 .container {
     display: flex;
     flex-direction: column;
@@ -30,6 +34,8 @@ h1 {
     font-size: 54px;
 }
 
+/* //////////////////////////////////////////////// */
+/* SCOREBOARD STYLES */
 .resultContainer {
     display: flex;
     flex-direction: column;
@@ -50,21 +56,44 @@ h2 {
     font-weight: bold;
 }
 
+/* //////////////////////////////////////////////// */
+/* BUTTONS */
 .btns {
     display: flex;
     gap: 10px;
 }
 
-.btn {
+.btn, .new-game {
     font-family: inherit;
-    font-size: 48px;
     font-weight: bold;
     color: #eee;
     padding: 8px 16px;
     border: none;
-    /* flex: 1 1 0; */
 }
 
+.btn {
+    font-size: 48px;
+}
+
+.new-game {
+    background: transparent;
+    font-size: 24px;
+    border-bottom: 1px solid rgb(79, 39, 35, .4);
+    transition: all .1s;
+}
+
+.new-game:hover {
+    transform: scale(1.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
+}
+
+.new-game:active {
+    transform: scale(1);
+    box-shadow: none;
+}
+
+/* //////////////////////////////////////////////// */
+/* COLORS */
 .rock-color {
     color: var(--rock);
 }
@@ -81,12 +110,24 @@ h2 {
     background-color: var(--rock);
 }
 
+.rock:hover {
+    background-color: hsl(5, 39%, 40%);
+}
+
 .paper {
     background-color: var(--paper);
 }
 
+.paper:hover {
+    background-color: hsl(91, 28%, 44%);
+}
+
 .scissors {
     background-color: var(--scissors);
+}
+
+.scissors:hover {
+    background-color: hsl(48, 60%, 50%);
 }
 
 .robot-win {
